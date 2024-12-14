@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  run:
+    cmds:
+      - air
+    desc: Run the server
+  protoc:
+    cmds:
+      - |
+        protoc -I=api/proto \
+        -I=/home/albertofp/go/pkg/mod/google.golang.org/protobuf@v1.35.2 \
+        --go_out=api/proto --go-grpc_out=api/proto api/proto/shorturl.proto
+    desc: Generate protobuf files
+    silent: true
